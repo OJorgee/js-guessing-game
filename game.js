@@ -1,15 +1,15 @@
-// 1.generateRandomNumber
+// b)generate Random Number
 function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
 }
-//2.getPlayerGuess
+
+// c) request the number from the user
 function getPlayerGuess() {
     let guess;
     let isValid = false;
     while (!isValid) {
         let input = prompt("Guess a number between 1 and 100:");
         if (input === null) return null;
-
         guess = parseInt(input);
         if (!isNaN(guess) && guess >= 1 && guess <= 100) {
             isValid = true;
@@ -19,28 +19,42 @@ function getPlayerGuess() {
     }
     return guess;
 }
-//3.game
+
+// d) check guess function
+function checkGuess(guess, targetNumber) {
+    if (guess < targetNumber) return "Too low!";
+    if (guess > targetNumber) return "Too high!";
+    return "Correct!";
+}
+
+// e )the main game function
 function game() {
     const targetNumber = generateRandomNumber();
     let attempts = 0;
     const maxAttempts = 10;
+    let won = false;
 
     while (attempts < maxAttempts) {
         let guess = getPlayerGuess();
-        if (guess === null) break; 
+        if (guess === null) break;
 
         attempts++;
+        let result = checkGuess(guess, targetNumber);
+        console.log(result + " (Attempts: " + attempts + ")");
 
-        if (guess < targetNumber) {
-            console.log("Too low! Attempts used: " + attempts);
-        } else if (guess > targetNumber) {
-            console.log("Too high! Attempts used: " + attempts);
-        } else {
+        if (result === "Correct!") {
+            won = true;
+            // Bonus: Scoring System
+            let score = (maxAttempts - attempts + 1) * 10;
             console.log("Congratulations! You won in " + attempts + " tries!");
-            return;
+            console.log("Your final score is: " + score + " points!");
+            break;
         }
     }
-    console.log("Game Over! The correct number was: " + targetNumber);
+
+    if (!won) {
+        console.log("Game Over! The correct number was: " + targetNumber);
+    }
 }
 
 game();
