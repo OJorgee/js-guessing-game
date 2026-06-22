@@ -22,8 +22,8 @@ function getPlayerGuess() {
 
 // d) check guess function
 function checkGuess(guess, targetNumber) {
-    if (guess < targetNumber) return "Too low!";
-    if (guess > targetNumber) return "Too high!";
+    if (guess < targetNumber) return "Too low! Your guess was " + guess + "!"
+    if (guess > targetNumber) return "Too high! Your guess was " + guess + "!"
     return "Correct!";
 }
 
@@ -40,13 +40,13 @@ function game() {
 
         attempts++;
         let result = checkGuess(guess, targetNumber);
-        console.log(result + " (Attempts: " + attempts + ")");
+        console.log(result + " (Attempts: " + attempts + "/10)");
 
         if (result === "Correct!") {
             won = true;
             // Bonus: Scoring System
             let score = (maxAttempts - attempts + 1) * 10;
-            console.log("Congratulations! You won in " + attempts + " tries!");
+            console.log("Congratulations! You won in " + attempts + " tries! Your number was " + guess + "!");
             console.log("Your final score is: " + score + " points!");
             break;
         }
