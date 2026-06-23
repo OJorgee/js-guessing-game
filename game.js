@@ -8,7 +8,9 @@ function getPlayerGuess() {
     let guess;
     let isValid = false;
     while (!isValid) {
-        let input = prompt("Guess a number between 1 and 100:");
+        let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools) \n" + 
+            "(If console doesn't work press cancel and refresh the page) \n" +
+            "Guess a number between 1 and 100:");
         if (input === null) return null;
         guess = parseInt(input);
         if (!isNaN(guess) && guess >= 1 && guess <= 100) {
@@ -36,7 +38,11 @@ function game() {
 
     while (attempts < maxAttempts) {
         let guess = getPlayerGuess();
-        if (guess === null) break;
+        if (guess === null) 
+            {
+                alert("Game Aborted, refresh the page to restart.")
+                break;
+            }
 
         attempts++;
         let result = checkGuess(guess, targetNumber);
@@ -46,14 +52,16 @@ function game() {
             won = true;
             // Bonus: Scoring System
             let score = (maxAttempts - attempts + 1) * 10;
-            console.log("Congratulations! You won in " + attempts + " tries! Your number was " + guess + "!");
-            console.log("Your final score is: " + score + " points!");
+            alert("Congratulations! You won in " + attempts + " tries! Your number was " + guess + "! \n" +
+                "Your final score is: " + score + " points! \n" +
+                "Refresh the page to play again.")
             break;
         }
     }
 
     if (!won) {
-        console.log("Game Over! The correct number was: " + targetNumber);
+        alert("Game Over! The correct number was: " + targetNumber + "\n" +
+        "Refresh the page to play again.");
     }
 }
 
