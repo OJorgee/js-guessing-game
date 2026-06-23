@@ -1,4 +1,5 @@
 # Number Guessing Game 
+## Live Demo: https://ojorgee.github.io/js-guessing-game/
 
 A terminal-based number guessing game built with JavaScript. This project was developed as a technical assignment to demonstrate clean code principles, logic implementation, and effective error handling.
 
@@ -17,3 +18,7 @@ A terminal-based number guessing game built with JavaScript. This project was de
 * **Language:** Vanilla JavaScript (ES6+).
 * **Game Logic:** Implemented using a `while` loop for input validation and a structured loop for game attempts.
 * **Best Practices:** Follows the Single Responsibility Principle, ensuring each function handles exactly one task.
+  ### Made by: 
+- https://github.com/ragadag621
+- https://github.com/OJorgee
+- https://github.com/metaspheres
