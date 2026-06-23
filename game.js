@@ -1,3 +1,4 @@
+(function() { 
 // b)generate Random Number
 function generateRandomNumber() {
     return Math.floor(Math.random() * 100) + 1;
@@ -68,3 +69,5 @@ function game() {
 }
 
 game();
+
+})();
