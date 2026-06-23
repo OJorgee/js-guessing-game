@@ -35,11 +35,13 @@ function game() {
     let attempts = 0;
     const maxAttempts = 10;
     let won = false;
+    let aborted = false;
 
     while (attempts < maxAttempts) {
         let guess = getPlayerGuess();
         if (guess === null) 
             {
+                aborted = true;
                 alert("Game Aborted, refresh the page to restart.")
                 break;
             }
@@ -59,7 +61,7 @@ function game() {
         }
     }
 
-    if (!won) {
+    if (!won && !aborted) {
         alert("Game Over! The correct number was: " + targetNumber + "\n" +
         "Refresh the page to play again.");
     }
