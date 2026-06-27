@@ -10,7 +10,7 @@ function getPlayerGuess() {
     let isValid = false;
     while (!isValid) {
         let input = prompt("To play, please open dev tools (Browser Context Menu -> More tools -> Developer tools -> Console) \n" + 
-            "(If console doesn't work press cancel and refresh the page) \n" +
+            "(If console doesn't work press Cancel, then OK and refresh the page) \n" +
             "Guess a number between 1 and 100:");
         if (input === null) return null;
         guess = parseInt(input);
